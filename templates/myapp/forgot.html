@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>forgot page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+    <body>
+
+
+                    <div class="p-3 mb-2 bg-info text-white" style="height:100px">
+&nbsp&nbsp<h2 align="center">Exam Seating Arrangement System</h2>
+
+
+                    </div>
+
+              <center>
+                <div style="top:1000px; width: 400px; height: 350px; border:5px; border-style: inset;" class="Jumbotron bg-dark px-3 py-3 mx-3 my-3">
+                    <img width="80px" height="80px"  src="{% static 'images/alclogo.gif' %}">
+                    <form class="px-2 py-2" method="POST" action="/forgot2/">
+                    <h5 class="text-danger">{{msg}}</h5>
+                    <input type="password" name="username" class="form-control my-3" placeholder="Enter new password" required>
+                    <button type="submit" class="bg-danger text-white btn"><i class="fas fa-sign-in-alt"></i>
+                                Submit
+                    </button><br>
+
+                    </form>
+                    <a href="/home/"><button  class="bg-danger text-white btn"><i class="fas fa-sign-in-alt"></i>
+                                LOGIN</button></a>
+
+                    </div>
+              </center>
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en"
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bootstrap website</title>
+    <link rel="stylesheet" type=text/css href="css/bootstrap.min.css">
+    <link rel="stylesheet" type=text/css href="css/bootstrap.grid.min.css">
+    <link rel="stylesheet" type=text/css href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type=text/css href="./style.css">
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+</head>
+    <body class="">
+
+            <div class="card header">
+                    <a class="navbar-brand bg-danger"><img width="50px" height="50px" src="{% static 'images/alclogo.gif' %}">
+                        <center>Exam seating  arrangement system</center>
+                    </a>
+                
+                </div>
+            
+<form class="px-15 py-15" method='POST' action='/class_select2/'>
+  {%csrf_token%}
+                     <label class="text-danger text-right"><h5>Select department</h5></label><br>
+                         <div class="form-check-inline">
+                            <label class="form-check-label" for="check1">
+                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check1" name="MBA" value="something" checked>MCA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="check2">
+                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check2" name="M.C.A" >MBA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" class="form-check-input" id="check3" name="MSC(Physics)" value="something">MSC(Physics)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div> 
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check4" name="MSC(Physics)" value="something">MSC(Chemistry)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>    
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check5" name="MSC(Physics)" value="something">MSC(Botany)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>    
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" class="form-check-input" id="check6" name="MSC(Physics)" value="something">MSC(Maths)
+                          </div><br
+                         
+                          
+                    <div class="control">
+                      
+                      <input class="input" name="amca" type="number" placeholder="AMCA"  size='2' maxlength="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amba" type="text" placeholder="AMBA"  size='3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input class="input" name="amp" type="text" placeholder="AMP"  size='3'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amc" type="text" placeholder="AMC"  size='3'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amb" type="text" placeholder="AMB"  size='3'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amm" type="text" placeholder="AMM"  size='3'><br><br>
+                      <input class="input" name="nmca" type="text" placeholder="NMCA"  size='3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmba" type="text" placeholder="NMBA"  size='3'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmp" type="text" placeholder="NMP"  size='3'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmc" type="text" placeholder="NMP"  size='3'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmb" type="text" placeholder="NMB"  size='3'>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmm" type="text" placeholder="NMM"  size='3'><br><br>
+                      <input class="input" name="dmca" type="text" placeholder="DMCA"  size='3'><br><br>
+                      
+                      <h1 align='center'><button  type='submit' class="btn btn-primary active">SUBMIT</button></h1>
+
+                    <h2 class="text-danger">{{msg}}</h2></div></form>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>home page</title>
+    </html>
+    </head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+</head>
+        <body class="p-3 mb-2 bg-info text-white">
+        <div style="height:100px">
+
+                        <marquee></marquee> <h3 align="center" > <nav class="navbar navbar-dark bg-primary">
+                              <center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam Seating Arrangement System</center>
+
+        </nav></h3></marquee>
+
+        </div>
+
+        <center>
+
+        <div style="width: 500px; height: 500px; border:5px; border-style: inset;" class="Jumbotron bg-dark px-3 py-3 mx-3 my-3">
+            <img width="100px" height="100px"  src="{% static 'images/alclogo.gif' %}">
+            <h4 class="text-danger">{{msg}}</h4>
+            <form class="px-2 py-2" method="POST" action="/login_conf/">
+            <input type="text" class="form-control my-3" placeholder="Enter username" name="username" required>
+            <input type="password" class="form-control my-3" placeholder="Enter password" name="password"  data-toggle="password" required>
+            <button type="submit" class="bg-danger text-white btn"><i class="fas fa-sign-in-alt"></i>
+                        Login</button>
+            </form>
+             <a class="fa ds" href="/forgot/">forget password</a>
+            </div>
+      </center>
+      </body>
+<script type="text/javascript">
+	$("#password").password('toggle');
+</script>
+      </html>
