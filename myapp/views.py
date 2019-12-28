@@ -24,7 +24,7 @@ def suc_conf(request):
 
         else:
             print('login was succesfull')
-            return render(request,'myapp/sucess.html')
+            return render(request,'myapp/second.html')
     return render(request,'myapp/forgot.html')
 def forgot_view(request):
     msg='enter your username to get password'
@@ -65,18 +65,57 @@ def class_select2_view(request):
         dmca=request.POST.get("dmca")
         amba=request.POST.get("amba")
         nmba=request.POST.get("nmba")
-        amp=request.POST.get("amp")
-        nmp=request.POST.get("nmp")
-        amc=request.POST.get("amc")
-        nmc=request.POST.get("nmc")
-        amb=request.POST.get("amb")
-        nmb=request.POST.get("nmb")
-        amm=request.POST.get("amm")
-        nmm=request.POST.get("nmm")
-        print("the data is",amca,nmca,dmca,amba,nmba,amp,nmp,amc,nmc,amb,nmb,amm,nmm )
+        amph=request.POST.get("amph")
+        nmph=request.POST.get("nmph")
+        amcy=request.POST.get("amcy")
+        nmcy=request.POST.get("nmcy")
+        amby=request.POST.get("amby")
+        nmby=request.POST.get("nmby")
+        amma=request.POST.get("amma")
+        nmma=request.POST.get("nmma")
+
         msg=''
-        if amca.isalpha() or nmca.isalnum() or dmca.isalnum() or amba.isalnum() or nmba.isalnum() or amp.isalnum() or nmp.isalnum() or amc.isalnum() or nmc.isalnum() or amb.isalnum() or nmb.isalnum() or amm.isalnum() or nmm.isalnum():
-            str='please enter a valid input'
+        total=0
+        if amca==''and nmca=='' and dmca=='' and amph=='' and nmph=='' and amcy=='' and nmcy=='' and amby=='' and nmby=='' and amma=='' and nmma=='':
+
+            str='Atleast one class should write examination'
             return render(request,'myapp/second.html',{'msg':str})
+
         else:
+            if amca!='':
+                amca=int(amca)
+                total+=amca
+            if nmca!='':
+                nmca=int(nmca)
+                total+=nmca
+            if dmca!='':
+                dmca=int(dmca)
+                total+=dmca
+            if amph!='':
+                amph=int(amph)
+                total+=amph
+            if nmph!='':
+                nmph=int(nmph)
+                total+=nmph
+            if amcy!='':
+                amcy=int(amcy)
+                total+=amcy
+            if nmcy!='':
+                nmcy=int(nmcy)
+                total+=nmcy
+            if amby!='':
+                amby=int(amby)
+                total+=amby
+            if nmby!='':
+                nmby=int(nmby)
+                total+=nmby
+            if amma!='':
+                amma=int(amma)
+                total+=amma
+            if nmma!='':
+                nmma=int(nmma)
+                total+=nmma
+            print("the data is", amca, nmca, dmca, amba, nmba, amph, nmph, amcy, nmcy, amby, nmby, amma, nmma)
+            print(type(amca))
+            print("total:  ",total)
             return render(request,'myapp/sucess.html')

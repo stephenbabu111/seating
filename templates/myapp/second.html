@@ -1,71 +1,133 @@
 <!DOCTYPE html>
-{%load staticfiles%}
-<html lang="en"
+{% load staticfiles %}
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>bootstrap website</title>
-    <link rel="stylesheet" type=text/css href="css/bootstrap.min.css">
-    <link rel="stylesheet" type=text/css href="css/bootstrap.grid.min.css">
-    <link rel="stylesheet" type=text/css href="css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" type=text/css href="./style.css">
-    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="{%static 'css/second.css' %}">
+<style >
+    .all{
+    display:none;
+    }</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        var inputValue = $(this).attr("value");
+        $("." + inputValue).toggle();
+    });
+});
+</script>
 </head>
     <body class="">
 
             <div class="card header">
-                    <a class="navbar-brand bg-danger"><img width="50px" height="50px" src="{% static 'images/alclogo.gif' %}">
+                    <a class="navbar-brand bg-danger"><img width="50px" height="50px" src="{%static 'images/alclogo.gif' %}">
                         <center>Exam seating  arrangement system</center>
                     </a>
-                
-                </div>
-            
-<form class="px-15 py-15" method='POST' action='/class_select2/'>
-  {%csrf_token%}
-                     <label class="text-danger text-right"><h5>Select department</h5></label><br>
-                         <div class="form-check-inline">
-                            <label class="form-check-label" for="check1">
-                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check1" name="MBA" value="something" checked>MCA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </label>
-                          </div>
-                          <div class="form-check-inline">
-                            <label class="form-check-label" for="check2">
-                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check2" name="M.C.A" >MBA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </label>
-                          </div>
-                          <div class="form-check-inline">
-                            <label class="form-check-label">
-                              &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" class="form-check-input" id="check3" name="MSC(Physics)" value="something">MSC(Physics)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          </div> 
-                          <div class="form-check-inline">
-                            <label class="form-check-label">
-                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check4" name="MSC(Physics)" value="something">MSC(Chemistry)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          </div>    
-                          <div class="form-check-inline">
-                            <label class="form-check-label">
-                              &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" class="form-check-input" id="check5" name="MSC(Physics)" value="something">MSC(Botany)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          </div>    
-                          <div class="form-check-inline">
-                            <label class="form-check-label">
-                              &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" class="form-check-input" id="check6" name="MSC(Physics)" value="something">MSC(Maths)
-                          </div><br
-                         
-                          
-                    <div class="control">
-                      
-                      <input class="input" name="amca" type="number" placeholder="AMCA"  size='2' maxlength="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amba" type="text" placeholder="AMBA"  size='3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input class="input" name="amp" type="text" placeholder="AMP"  size='3'>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amc" type="text" placeholder="AMC"  size='3'>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amb" type="text" placeholder="AMB"  size='3'>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="amm" type="text" placeholder="AMM"  size='3'><br><br>
-                      <input class="input" name="nmca" type="text" placeholder="NMCA"  size='3'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmba" type="text" placeholder="NMBA"  size='3'>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmp" type="text" placeholder="NMP"  size='3'>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmc" type="text" placeholder="NMP"  size='3'>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmb" type="text" placeholder="NMB"  size='3'>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="input" name="nmm" type="text" placeholder="NMM"  size='3'><br><br>
-                      <input class="input" name="dmca" type="text" placeholder="DMCA"  size='3'><br><br>
-                      
-                      <h1 align='center'><button  type='submit' class="btn btn-primary active">SUBMIT</button></h1>
 
-                    <h2 class="text-danger">{{msg}}</h2></div></form>
+                </div>
+            <form method="POST" action="/class_select2/">
+                <div class="row">
+                    <div class="col-2">
+                      <div class="input-group">
+                          <span class="input-group-addon">
+                            <input type="checkbox" aria-label="..." value="mca">
+                          </span> MCA
+                        </div><!-- /input-group -->
+                     <div class="row all mca">
+                        <div class="col-2">
+                            <input class="input" name="amca"  type="number" placeholder="AMCA"  max='100' min='1' unchecked ><br><br>
+                            <input class="input" name="nmca" type="number" placeholder="NMCA"   max='100' min='1' ><br><br>
+                            <input class="input" name="dmca" type="number" placeholder="DMCA"  max='100' min='1' >
+
+                        </div>
+                     </div>
+                </div>
+
+                <div class="col-2">
+                  <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="..." value="mba">
+                      </span>
+                     MBA
+                    </div><!-- /input-group -->
+                    <div class="row all mba">
+                        <div class="col-2">
+                            <input class="input" name="amba" type="number" placeholder="AMBA"   max='100' min='1' ><br><br>
+                            <input class="input" name="nmba" type="number" placeholder="NMBA"  max='100' min='1' >
+
+
+                        </div>
+                     </div>
+            </div>
+
+            <div class="col-2">
+              <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="checkbox" aria-label="..." value="msp">
+                  </span>
+                 MSC(Physics)
+                </div><!-- /input-group -->
+                <div class="row all msp">
+                    <div class="col-2">
+                        <input class="input" name="amph" type="number" placeholder="AMPH"   max='100' min='1' ><br><br>
+                        <input class="input" name="nmph" type="number" placeholder="NMPH"   max='100' min='1' >
+
+
+                    </div>
+                 </div>
+        </div>
+        <div class="col-2">
+          <div class="input-group">
+              <span class="input-group-addon">
+                <input type="checkbox" aria-label="..." value="msc">
+              </span>
+             MSC(chemistry)
+            </div><!-- /input-group -->
+            <div class="row all msc">
+                <div class="col-2">
+                    <input class="input" name="amcy" type="number" placeholder="AMCY"   max='100' min='1' ><br><br>
+                    <input class="input" name="nmcy" type="number" placeholder="NMCY"  max='100' min='1' >
+
+
+                </div>
+             </div>
+    </div>
+    <div class="col-2">
+      <div class="input-group">
+          <span class="input-group-addon">
+            <input type="checkbox" aria-label="..." value="msb">
+          </span>
+         MSC(Botany)
+        </div><!-- /input-group -->
+        <div class="row all msb">
+            <div class="col-2">
+                <input class="input" name="amby" type="number" placeholder="AMBY"  max='100' min='1' ><br><br>
+                <input class="input" name="nmby" type="number" placeholder="NMBY"   max='100' min='1' >
+
+
+            </div>
+         </div>
+</div>
+<div class="col-2">
+  <div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="..." value="msm">
+      </span>
+     MSC(Maths)
+    </div><!-- /input-group -->
+    <div class="row all msm">
+        <div class="col-2">
+            <input class="input" name="amma" type="number" placeholder="AMMA"   max='100' min='1' ><br><br>
+            <input class="input" name="nmma" type="number" placeholder="NMMA"   max='100' min='1' ><br><br>
+
+
+        </div>
+     </div>
+</div>
+                </div><br>
+                <h4 align="center" class="text-danger">{{msg}}</h4>
+<h1 align="center"><button type="submit" class="bg-danger text-white btn"><i class="fas fa-sign-in-alt"></i>
+                        NEXT</button></h1>
+</form></body>
+</html>
