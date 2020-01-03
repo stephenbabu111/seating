@@ -26,5 +26,6 @@ urlpatterns = [
     path('forgot2/',views.forgot2_view),
     path('class_select/',views.class_select_view),
     path('class_select2/',views.class_select2_view),
+    path('final_list/',views.list_view),
     url(r'^$',views.home_view)
 ]

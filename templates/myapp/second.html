@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 {% load staticfiles %}
 <html lang="en">
 <head>
@@ -26,12 +27,14 @@ $(document).ready(function(){
                     </a>
 
                 </div>
-            <form method="POST" action="/class_select2/">
+            <form method="POST" action="/class_select2/" { csrf_token }>
+                { csrf_token }
                 <div class="row">
                     <div class="col-2">
                       <div class="input-group">
                           <span class="input-group-addon">
                             <input type="checkbox" aria-label="..." value="mca">
+                              { csrf_token }
                           </span> MCA
                         </div><!-- /input-group -->
                      <div class="row all mca">
