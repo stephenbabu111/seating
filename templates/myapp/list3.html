@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seating arrangement</title>
+<style>
+    .boxed{
+    border:2px solid green;
+    width:10%;
+    height:%;
+    float:left
+</style>
+</head>
+<body>
+<h1>here is the final list</h1>
+<h4 align="center">
+{% for number in  numbers %}
+
+
+
+{% if number == 6 %}
+ <br><br>
+{% elif number == 11 %}
+<br><br>
+{% elif number == 16 %}
+<br><br>
+{% elif number == 21 %}
+<br><br>
+{% elif number == 26 %}
+<br><br>
+{% elif number == 31 %}
+<br><br>
+{% elif number == 36 %}
+<br><br>
+{% elif number == 41 %}
+<br><br>
+{% endif %}
+<div class="boxed" >
+nmca{{number}}
+</div>
+{% endfor %}
+</h4>
+</body>
+</html>

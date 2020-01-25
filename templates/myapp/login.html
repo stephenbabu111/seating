@@ -29,6 +29,7 @@
             <img width="100px" height="100px"  src="{% static 'images/alclogo.gif' %}">
             <h4 class="text-danger">{{msg}}</h4>
             <form class="px-2 py-2" method="POST" action="/login_conf/">
+                {% csrf_token %}
             <input type="text" class="form-control my-3" placeholder="Enter username" name="username" required>
             <input type="password" class="form-control my-3" placeholder="Enter password" name="password"  data-toggle="password" required>
             <button type="submit" class="bg-danger text-white btn"><i class="fas fa-sign-in-alt"></i>

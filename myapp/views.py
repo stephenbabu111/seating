@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from .models import user
 from math import ceil
 msg3=''
+
+
+r=0
 dict={}
 # Create your views here.
 
@@ -77,11 +80,7 @@ def class_select2_view(request):
         nmma=request.POST.get("nmma")
 
         msg=''
-        sp2=40
-        sp4=40
-        sp5=40
-        sp6=40
-        sp7=100
+
         total=0
 
         if amca==''and nmca=='' and dmca=='' and amph=='' and nmph=='' and amcy=='' and nmcy=='' and amby=='' and nmby=='' and amma=='' and nmma=='':
@@ -142,11 +141,13 @@ def class_select2_view(request):
                 nmma=int(nmma)
                 total+=nmma
                 dict["nmma"]=nmma
-            r=ceil(total/40)
+
+            r = ceil(total/40)
             global msg3
             if r==1:
                 msg3="slect one room"
-            if r==2:
+
+            if r == 2:
                 msg3="select two rooms"
             if r==3:
                 msg3="select three rooms"
@@ -159,12 +160,38 @@ def class_select2_view(request):
             print(dict)
             print("total:  ",total)
             return render(request,'myapp/sucess.html',{'msg3':msg3})
+
 def list_view(request):
+
     if request.method=='POST':
         var=request.POST.getlist("check[]")
-    if len(var)==0:
-        return render(request,"myapp/sucess.html",{'msg3':msg3})
-    else:
-        for i in dict.keys():
-            print(dict[i].keys())
-    return render(request,'myapp/list.html')
+        count=0
+        sp2 = 40
+        sp4 = 40
+        sp5 = 40
+        sp6 = 40
+        sp7 = 100
+        global room_dict
+        room_dict={}
+        if '2p2' in var:
+            count+=sp2
+            room_dict["2p2"]='y'
+        if '2p4' in var:
+            count+=sp4
+            room_dict["2p4"]='y'
+        if '2p5' in var:
+            count+=sp5
+            room_dict["2p5"] = 'y'
+        if '2p6' in var:
+            count+=sp6
+            room_dict["2p6"] = 'y'
+        if '2p7' in var:
+            count+=sp7
+            room_dict["2p7"] = 'y'
+        print(r)
+        if len(var)<r:
+            print(r)
+            print(room_dict)
+            return render(request,"myapp/sucess.html",{'msg3':msg3})
+        else:
+            return render(request,'myapp/list.html',{"number":range(40)},{"divisor":[6,11,16,21,26,31,36]})
