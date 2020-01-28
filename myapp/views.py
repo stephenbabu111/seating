@@ -1,11 +1,19 @@
 from django.shortcuts import render,redirect
 from .models import user
 from math import ceil
+from myapp.result import result1
+
+
+
 msg3=''
 
 
-r=0
-dict={}
+
+cls_name=[]
+cls_value=[]
+global room_dict1
+
+global total
 # Create your views here.
 
 def home_view(request):
@@ -80,10 +88,10 @@ def class_select2_view(request):
         nmma=request.POST.get("nmma")
 
         msg=''
-
+        global total
         total=0
 
-        if amca==''and nmca=='' and dmca=='' and amph=='' and nmph=='' and amcy=='' and nmcy=='' and amby=='' and nmby=='' and amma=='' and nmma=='':
+        if amca==''and nmca=='' and dmca=='' and amba=='' and nmba=='' and amph=='' and nmph=='' and amcy=='' and nmcy=='' and amby=='' and nmby=='' and amma=='' and nmma=='':
 
             str='Atleast one class should write examination'
             return render(request,'myapp/second.html',{'msg':str})
@@ -92,56 +100,69 @@ def class_select2_view(request):
             if amca!='':
                 amca=int(amca)
                 total+=amca
-                dict["amca"]=amca
+                cls_name.append('amca')
+                cls_value.append(amca)
             if nmca!='':
                 nmca=int(nmca)
                 total+=nmca
-                dict["nmca"]=nmca
+                cls_name.append('nmca')
+                cls_value.append(nmca)
             if dmca!='':
                 dmca=int(dmca)
                 total+=dmca
-                dict["dmca"]=dmca
+                cls_name.append('dmca')
+                cls_value.append(dmca)
             if amba!='':
                 amba=int(amba)
                 total+=amba
-                dict["amba"]=amba
+                cls_name.append('amba')
+                cls_value.append(amba)
             if nmba !='':
                 nmba=int(nmba)
                 total+=nmba
-                dict["nmba"]=nmba
+                cls_name.append('nmba')
+                cls_value.append(nmba)
             if amph!='':
                 amph=int(amph)
                 total+=amph
-                dict["amph"]=amph
+                cls_name.append('amph')
+                cls_value.append(amph)
             if nmph!='':
                 nmph=int(nmph)
                 total+=nmph
-                dict["nmph"]=nmph
+                cls_name.append('nmph')
+                cls_value.append(nmph)
             if amcy!='':
                 amcy=int(amcy)
                 total+=amcy
-                dict["amcy"]=amcy
+                cls_name.append('amcy')
+                cls_value.append(amcy)
             if nmcy!='':
                 nmcy=int(nmcy)
                 total+=nmcy
-                dict["nmcy"]=nmcy
+                cls_name.append('nmcy')
+                cls_value.append(nmcy)
             if amby!='':
                 amby=int(amby)
                 total+=amby
-                dict["amby"]=amby
+                cls_name.append('amby')
+                cls_value.append(amby)
             if nmby!='':
                 nmby=int(nmby)
                 total+=nmby
-                dict["nmby"]=nmby
+                cls_name.append('nmby')
+                cls_value.append(nmby)
             if amma!='':
                 amma=int(amma)
                 total+=amma
-                dict["amma"]=amma
+                cls_name.append('amma')
+                cls_value.append(amma)
             if nmma!='':
                 nmma=int(nmma)
                 total+=nmma
-                dict["nmma"]=nmma
-
+                cls_name.append('nmma')
+                cls_value.append(nmma)
+            global r
             r = ceil(total/40)
             global msg3
             if r==1:
@@ -162,36 +183,51 @@ def class_select2_view(request):
             return render(request,'myapp/sucess.html',{'msg3':msg3})
 
 def list_view(request):
-
+    global total
+    global room_dict1
+    room_dict={}
     if request.method=='POST':
-        var=request.POST.getlist("check[]")
+        var=request.POST.getlist("checks[]")
         count=0
         sp2 = 40
         sp4 = 40
         sp5 = 40
         sp6 = 40
         sp7 = 100
-        global room_dict
-        room_dict={}
-        if '2p2' in var:
-            count+=sp2
-            room_dict["2p2"]='y'
-        if '2p4' in var:
-            count+=sp4
-            room_dict["2p4"]='y'
-        if '2p5' in var:
-            count+=sp5
-            room_dict["2p5"] = 'y'
-        if '2p6' in var:
-            count+=sp6
-            room_dict["2p6"] = 'y'
-        if '2p7' in var:
-            count+=sp7
-            room_dict["2p7"] = 'y'
-        print(r)
-        if len(var)<r:
-            print(r)
-            print(room_dict)
-            return render(request,"myapp/sucess.html",{'msg3':msg3})
+
+        room=0
+        for i in var:
+            if i=="2p7":
+                room=room+100
+
+            else:
+                room=room+40
+            room_dict[i] = "y"
+        print(room)
+
+
+        print(room_dict)
+        msg4="Total "+str(total)+" students write the examination "
+        if total>room and (room-total)<=39 :
+            return render(request,"myapp/sucess.html",{'msg3':msg3},{"msg4":msg4})
+        elif (room-total)>=40 and "2p7" not in var:
+            return render(request,"myapp/sucess.html",{'msg3':"select required rooms only.you required "+msg3+"only"})
         else:
-            return render(request,'myapp/list.html',{"number":range(40)},{"divisor":[6,11,16,21,26,31,36]})
+            room_dict1 = result1(cls_name, cls_value, room_dict)
+            return render(request,'myapp/list2.html',{'dict':room_dict})
+
+def sp2_view(request):
+    global room_dict1
+    return render(request,'myapp/sp2.html',{'dict':room_dict1['2p2']},{'room':'2p2'} )
+def sp4_view(request):
+    global room_dict1
+    return render(request,'myapp/sp2.html',{'dict':room_dict1['2p4']},{'room':'2p4'})
+def sp5_view(request):
+    global room_dict1
+    return render(request,'myapp/sp2.html',{'dict':room_dict1['2p5']},{'room':'2p5'})
+def sp6_view(request):
+    global room_dict1
+    return render(request,'myapp/sp2.html',{'dict':room_dict1['2p6']},{'room':'2p6'})
+def sp7_view(request):
+    global room_dict1
+    return render(request,'myapp/sp7.html',{'dict':room_dict1['2p7']},{'room':'2p7'})

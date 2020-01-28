@@ -22,6 +22,7 @@
                 <div style="top:1000px; width: 400px; height: 350px; border:5px; border-style: inset;" class="Jumbotron bg-dark px-3 py-3 mx-3 my-3">
                     <img width="80px" height="80px"  src="{% static 'images/alclogo.gif' %}">
                     <form class="px-2 py-2" method="POST" action="/forgot2/">
+                        {% csrf_token %}
                     <h5 class="text-danger">{{msg}}</h5>
                     <input type="password" name="username" class="form-control my-3" placeholder="Enter new password" required>
                     <button type="submit" class="bg-danger text-white btn"><i class="fas fa-sign-in-alt"></i>

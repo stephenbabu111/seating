@@ -27,31 +27,33 @@
                     </a>
 
                 </div>
-<form method="POST" action="/"
+            <h2>{{msg4}}</h2>
+<form method="POST" action="/final_list/">
+    {% csrf_token %}
                 <div class="row">
                     <div class="col-2">
                       <div class="input-group">
                           <span class="input-group-addon side">
-                            <input type="checkbox" aria-label="...">
-                          </span><p class="side">2P2</p>
+                            <input type="checkbox" aria-label="..." value="2p7" name="checks[]">
+                          </span><p class="side">2P7 (100 seats) (equall to two rooms)</p>
                         </div><br>
-                        <div class="input-group">
-                            <span class="input-group-addon side">
-                              <input type="checkbox" aria-label="...">
-                            </span> <p class="side">2P3</p>
-                          </div><br>
                           <div class="input-group">
                             <span class="input-group-addon side">
-                              <input type="checkbox" aria-label="...">
-                            </span> <p class="side">2P4</p>
+                              <input type="checkbox" aria-label="..." value="2p2" name="checks[]">
+                            </span> <p class="side">2P2 (40 seats)</p>
                           </div><br><div class="input-group">
                             <span class="input-group-addon side">
-                              <input type="checkbox" aria-label="...">
-                            </span> <p class="side">2P5</p>
+                              <input type="checkbox" aria-label="..." value="2p4" name="checks[]">
+                            </span> <p class="side">2P4 (40 seats)(</p>
                           </div><br><div class="input-group">
                             <span class="input-group-addon side">
-                              <input type="checkbox" aria-label="...">
-                            </span> <p class="side">2P6</p>
+                              <input type="checkbox" aria-label="..." value="2p5" name="checks[]">
+                            </span> <p class="side">2P5 (seats)</p>
+                          </div><br><div class="input-group">
+                            <span class="input-group-addon side">
+                              <input type="checkbox" aria-label="..." value="2p6" name="checks[]">
+                            </span> <p class="side">2P6 (40 seats)</p>
                           </div><br>
+                        <h2 class="text danger" >{{msg3}}</h2>
                           <button type="submit" class="side1 bg-danger text-white btn"><i class="fas fa-sign-in-alt"></i>
                             get result</button>
